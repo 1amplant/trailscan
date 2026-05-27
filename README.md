@@ -185,19 +185,6 @@ Need continuous monitoring, historical evidence, multi-account scanning, audit-r
 
 ---
 
-## Contributing
-
-PRs welcome. Please open an issue first for large changes.
-
-```bash
-git clone https://github.com/1amplant/trailscan
-cd trailscan
-pip install -e ".[dev]"
-pytest
-```
-
----
-
 ## License
 
 MIT
