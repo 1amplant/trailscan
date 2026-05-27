@@ -6,7 +6,7 @@ Point-in-time check of your AWS environment against the SOC 2 Trust Services Cri
 > trailscan gives you a snapshot. For **continuous monitoring, audit-ready PDF reports, and multi-source evidence** (AWS + GitHub + Okta + Google Workspace) → **[TrailProof](https://trailproof.app)**
 
 ```
-$ trailscan
+$ python -m trailscan.cli
 
 trailscan v0.1.0  — SOC 2 AWS readiness scanner
 Profile: default   Region: us-east-1
@@ -65,31 +65,31 @@ Requires Python 3.10+ and `boto3`. No other dependencies.
 
 ```bash
 # Use default AWS profile
-trailscan
+python -m trailscan.cli
 
 # Use a named profile
-trailscan --profile staging
+python -m trailscan.cli --profile staging
 
 # Specify a region
-trailscan --region us-west-2
+python -m trailscan.cli --region us-west-2
 
 # Only show failures
-trailscan --failed-only
+python -m trailscan.cli --failed-only
 
 # Verbose mode (shows raw evidence per finding)
-trailscan --verbose
+python -m trailscan.cli --verbose
 
 # Export to JSON
-trailscan --output json --output-file report.json
+python -m trailscan.cli --output json --output-file report.json
 
 # Export to CSV
-trailscan --output csv --output-file report.csv
+python -m trailscan.cli --output csv --output-file report.csv
 
 # Run specific checks only
-trailscan --checks iam.mfa_enabled_root s3.public_access_block
+python -m trailscan.cli --checks iam.mfa_enabled_root s3.public_access_block
 
 # All options
-trailscan --help
+python -m trailscan.cli --help
 ```
 
 ### Credentials
@@ -145,7 +145,7 @@ This makes trailscan easy to drop into CI:
 ```yaml
 # .github/workflows/soc2.yml
 - name: SOC 2 readiness scan
-  run: trailscan --output json --output-file soc2-report.json
+  run: python -m trailscan.cli --output json --output-file soc2-report.json
   env:
     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
