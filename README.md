@@ -94,15 +94,30 @@ python -m trailscan.cli --help
 
 ### Credentials
 
-trailscan uses standard AWS credential resolution — in order:
+The IAM user or role needs read-only access. The easiest option is attaching the AWS managed `ReadOnlyAccess` policy.
 
-1. `--profile` flag → named profile from `~/.aws/credentials`
-2. `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` env vars
-3. `AWS_PROFILE` env var
-4. Default profile
-5. EC2 instance profile / ECS task role
+**Option 1 — environment variables (quickest):**
+```bash
+export AWS_ACCESS_KEY_ID=AKIA...
+export AWS_SECRET_ACCESS_KEY=...
+export AWS_DEFAULT_REGION=us-east-1
+python -m trailscan.cli
+```
 
-The IAM user or role running trailscan needs **read-only** permissions. The minimum policy is:
+**Option 2 — named AWS profile:**
+```bash
+python -m trailscan.cli --profile myprofile
+```
+
+**Option 3 — default profile** (if you've already run `aws configure`):
+```bash
+python -m trailscan.cli
+```
+
+trailscan resolves credentials in this order: `--profile` flag, `AWS_ACCESS_KEY_ID` env vars, `AWS_PROFILE` env var, default profile, EC2/ECS instance role.
+
+<details>
+<summary>Minimum IAM policy (if you don't want to use ReadOnlyAccess)</summary>
 
 ```json
 {
@@ -129,6 +144,7 @@ The IAM user or role running trailscan needs **read-only** permissions. The mini
   }]
 }
 ```
+</details>
 
 ---
 
