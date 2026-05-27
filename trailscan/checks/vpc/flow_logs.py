@@ -42,7 +42,7 @@ class VPCFlowLogsEnabled(BaseCheck):
                 check_id=self.check_id,
                 control_id=self.control_id,
                 title=self.title,
-                status=Status.PASS if has_logs else Status.FAIL,
+                status=Status.PASS if has_logs else Status.WARN,
                 severity=Severity.HIGH,
                 resource_arn=f"arn:aws:ec2:{region}:{account_id}:vpc/{vpc_id}",
                 region=region,
