@@ -51,12 +51,6 @@ trailscan runs **35 checks** across 9 AWS services, each mapped to a SOC 2 TSC c
 
 ## Install
 
-**From PyPI:**
-```bash
-pip install trailscan
-```
-
-**From source:**
 ```bash
 git clone https://github.com/1amplant/trailscan
 cd trailscan
