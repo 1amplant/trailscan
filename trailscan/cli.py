@@ -25,6 +25,10 @@ def build_parser() -> argparse.ArgumentParser:
             "  trailscan --output json --output-file report.json\n"
             "  trailscan --output csv  --output-file report.csv\n"
             "  trailscan --checks iam.mfa_enabled_root s3.public_access_block\n"
+            "\n"
+            "trailscan is a point-in-time snapshot.\n"
+            "For continuous monitoring, audit-ready reports, and multi-source evidence:\n"
+            "  → https://trailproof.app\n"
         ),
     )
 

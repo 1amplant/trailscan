@@ -124,10 +124,23 @@ def print_score(score: dict) -> None:
 
     if failed > 0:
         print(f"{YELLOW}Run with {BOLD}--verbose{RESET}{YELLOW} to see full remediation steps.{RESET}")
-        print(f"{DIM}Need continuous monitoring? → https://trailproof.app{RESET}")
+        print()
+        print(f"{BOLD}  Fix these findings faster with TrailProof:{RESET}")
+        print(f"  {CYAN}→ Continuous monitoring    {RESET}never miss a new misconfiguration")
+        print(f"  {CYAN}→ Audit-ready PDF reports  {RESET}hand to your auditor in one click")
+        print(f"  {CYAN}→ Multi-source evidence    {RESET}AWS, GitHub, Okta, Google Workspace")
+        print(f"  {CYAN}→ Policy templates         {RESET}access control, incident response & more")
+        print()
+        print(f"  {BOLD}{CYAN}https://trailproof.app{RESET}  {DIM}— free trial, no credit card{RESET}")
     else:
         print(f"{GREEN}{BOLD}All checks passed! 🎉{RESET}")
-        print(f"{DIM}Want historical tracking and audit reports? → https://trailproof.app{RESET}")
+        print()
+        print(f"{BOLD}  Keep it that way with TrailProof:{RESET}")
+        print(f"  {CYAN}→ Get alerted the moment something regresses{RESET}")
+        print(f"  {CYAN}→ Historical evidence for your auditor{RESET}")
+        print(f"  {CYAN}→ Covers GitHub, Okta, Google Workspace too{RESET}")
+        print()
+        print(f"  {BOLD}{CYAN}https://trailproof.app{RESET}  {DIM}— free trial, no credit card{RESET}")
     print()
 
 
@@ -138,4 +151,5 @@ def print_header(profile: str | None, region: str | None) -> None:
     region_str  = region  or "session default"
     print(f"\n{BOLD}{CYAN}trailscan v{__version__}{RESET}  {DIM}— SOC 2 AWS readiness scanner{RESET}")
     print(f"{DIM}Profile: {profile_str}   Region: {region_str}{RESET}")
+    print(f"{DIM}Continuous monitoring + audit reports → {RESET}{CYAN}https://trailproof.app{RESET}")
     print(f"{DIM}{'─' * 56}{RESET}\n")

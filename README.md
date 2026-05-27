@@ -3,6 +3,8 @@
 **Open source SOC 2 AWS readiness scanner.**  
 Point-in-time check of your AWS environment against the SOC 2 Trust Services Criteria — straight from your terminal.
 
+> trailscan gives you a snapshot. For **continuous monitoring, audit-ready PDF reports, and multi-source evidence** (AWS + GitHub + Okta + Google Workspace) → **[TrailProof](https://trailproof.app)**
+
 ```
 $ trailscan
 
