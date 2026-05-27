@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "trailscan"
+version = "0.1.0"
+description = "SOC 2 AWS readiness scanner — point-in-time check of your AWS environment"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+keywords = ["aws", "soc2", "security", "compliance", "cloud"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: System :: Systems Administration",
+]
+dependencies = [
+    "boto3>=1.34",
+]
+
+[project.scripts]
+trailscan = "trailscan.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/1amplant/trailscan"
+"Bug Tracker" = "https://github.com/1amplant/trailscan/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["trailscan*"]
